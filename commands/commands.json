@@ -1,0 +1,202 @@
+{
+  "command": [
+    {
+      "name": "help",
+      "actions": [
+        {
+          "name": "help menu",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "g!help",
+              "value": "Siehe dieses Menü",
+              "inline": "false"
+            },
+            {
+              "name": "g!level",
+              "value": "Schau dein Level",
+              "inline": "false"
+            },
+            {
+              "name": "g!report <@user><reason>",
+              "value": "Reporte einen User",
+              "inline": "false"
+            }
+          ],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "1FFF57",
+          "title": "All Commands",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "footer": "${dbsVars.guild.memberCount} Members on ${dbsVars.guild.name}",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "s",
+      "actions": [
+        {
+          "name": "status",
+          "category": "Bot Action",
+          "type": "Set Bot Activity",
+          "activityname": "mit ${dbsVars.guild.memberCount} Usern on ${dbsVars.guild.name}",
+          "activitytype": "STREAMING",
+          "streamurl": "https://www.twitch.tv/drdave_official"
+        }
+      ]
+    },
+    {
+      "name": "report",
+      "actions": [
+        {
+          "name": "Why",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "varname": "Why",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "Who",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "varname": "Who",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "0"
+        },
+        {
+          "name": "Log",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "report-tracker",
+          "color": "1CFF59",
+          "title": "Report send",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "From: ${dbsVars.CommandAuthor.user.tag}\nUser: ${tempVars.Why.user.tag}\nMessage: ${tempVars.Who}",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "ready",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "42FF1C",
+          "title": "successfully submitted",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "**You have successfully reported ${tempVars.Who}**",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "clear",
+      "perms": [
+        "👨‍💼 │leitung"
+      ],
+      "actions": [
+        {
+          "name": "clearnumber",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "varname": "clear",
+          "vartype": "Number",
+          "savevartype": "temp",
+          "param": "0"
+        },
+        {
+          "name": "clear1",
+          "category": "Channel Action",
+          "type": "Delete All Messages",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "msgcount": "${tempVars.clear}"
+        }
+      ]
+    },
+    {
+      "name": "info",
+      "perms": [],
+      "actions": [
+        {
+          "name": "t",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "${dbsVars.CommandAuthor.user.dmChannel}",
+          "messagetext": "Vielen Dank für dein Interesse an unserem Partnerprogramm, erstmal erzähle ich dir ein wenig was über Gaming Rising\n                                                 ⠀====⠀⠀⠀====⠀⠀                                \n**Was ist Gaming Rising?**\nGaming Rising ist eine Streaming/Youtuber/Influencer-Community, die Anfang 2021 gegründet wurde und stetig wächst. Ziel unseres Netzwerkes ist es, kleine wie auch große Streamer zu unterstützen, gemeinsam Spaß zu haben und als Team und Netzwerk Schritt für Schritt immer größer und professioneller zu werden\n                                                 ⠀====⠀⠀⠀====⠀⠀                                              \n**Hier kannst du dich bewerben für unser Partnerprogramm**\nAuf unseren Discord hast du wie Möglichkeit den Youtuber/Streamer Rang zu bekommen, du bekommst einen Channel wo du bzw unser Bot deine Vidoes/Streams rein schickt.  Zudem als Twitch Streamer o.ä., bekommst du (wenn du willst) Panels von mir die du dann verwenden kannst. Nach circa 4-8 Wochen wenn alles gut läuft, hab ich mir überlegt starten wir mit dir ein kleines Gewinnspiel also für deine Community, was denn im Namen von Gaming Rising copyright  2021 veranstaltet wird und finanziert wird, was genau kann ich im Moment sich sagen & wird erstmal ein kleines Giveaway.  Im discord haben wir ein Announcement Channel, den du denn Folgen solltest, falls du auch einen Hast werden wir den genauso Folgen also sozusagen \"Werbung gegen Werbung\"! Und dann würden wir uns auch als \"Partner\" Verlinkung unter deinen Videos/Streams sehr freuen von unseren Discord. Ja Falls du dennoch fragen hast, Frag einfach los Wenn du Interesse hast, würd ich mich freuen:D Ist halt alles noch in der Beta\n---\n---\nBitte einmal ausfüllen & dann melde ich mich so schnell wie es geht bei dir! :heart:\nhttps://forms.gle/G3Z9zm6Xk6tsucZj6",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "level",
+      "perms": [],
+      "actions": [
+        {
+          "name": "Getxp",
+          "category": "User Data",
+          "type": "Get User Data",
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "xp",
+          "varname": "xp",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "Getxp_1",
+          "category": "User Data",
+          "type": "Get User Data",
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "lvl",
+          "varname": "lvl",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "send2",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "🎵│〖level〗",
+          "color": "F345FF",
+          "title": "Dein Level",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "<@${dbsVars.CommandAuthor.id}>\nDein Level ist **${tempVars.lvl}**\ndu hast derzeit **${tempVars.xp}/150 XP**",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    }
+  ]
+}

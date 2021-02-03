@@ -1,0 +1,472 @@
+{
+  "nodes": [
+    {
+      "type": "event",
+      "name": "User Joins Server",
+      "guid": "49ebbc23-2903-4f05-ab69-bc9ecb4f067e",
+      "variables": {
+        "user": "newuser"
+      },
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "fd3c49ce-f3e3-4f03-8a6b-034113216930",
+            "2cb872b1-9b27-46f2-b6a5-03ab69be48ec"
+          ]
+        }
+      ],
+      "x": 99,
+      "y": 100,
+      "perms": []
+    },
+    {
+      "type": "event",
+      "name": "Any Message",
+      "guid": "49ebbc23-2903-4f05-ab69-bc9ecb4f8888",
+      "variables": {
+        "user": "msguser"
+      },
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "1b032e21-be9d-496b-9db7-39c3d015ee03"
+          ]
+        }
+      ],
+      "x": 101,
+      "y": 498,
+      "perms": []
+    },
+    {
+      "type": "event",
+      "name": "User Kicked",
+      "guid": "69ebbc23-2903-4f05-ab69-bc9ecb4f067e",
+      "variables": {
+        "user": "kickuser"
+      },
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": []
+        }
+      ],
+      "x": 99,
+      "y": 250,
+      "perms": []
+    },
+    {
+      "type": "event",
+      "name": "User Banned",
+      "guid": "77ebbc23-2003-4f05-ab69-bc9ecb4f067e",
+      "variables": {
+        "user": "banuser"
+      },
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": []
+        }
+      ],
+      "x": 100,
+      "y": 375,
+      "perms": []
+    },
+    {
+      "type": "event",
+      "name": "Bot Initialization",
+      "guid": "0101bc23-2003-4f05-ab69-bc9ecb4f067e",
+      "variables": {},
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": []
+        }
+      ],
+      "x": 100,
+      "y": 625,
+      "perms": []
+    },
+    {
+      "type": "response",
+      "name": "Welcome",
+      "guid": "fd3c49ce-f3e3-4f03-8a6b-034113216930",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "49ebbc23-2903-4f05-ab69-bc9ecb4f067e"
+        }
+      ],
+      "x": 276,
+      "y": 47,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "🤭│new-user",
+        "Welcome %%newuser%% auf $$ServerName$$. Hab viel Spaß auf dem Server",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "DM",
+      "guid": "2cb872b1-9b27-46f2-b6a5-03ab69be48ec",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "49ebbc23-2903-4f05-ab69-bc9ecb4f067e"
+        }
+      ],
+      "x": 272,
+      "y": 154,
+      "rtype": "Message",
+      "rsubtype": "Send Direct Message",
+      "formdata": [
+        "${tempVars.newuser.user.tag}",
+        "Herzlich Willkommen auf ${dbsVars.guild.name}. Fühl dich wie zuhause & lese die Regeln. \n\nHier kannst du alle 12h für unseren Server voten und tolle Ränge gewinnen <3\nhttps://top.gg/servers/794242252033622045",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "user",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "Add XP",
+      "guid": "1b032e21-be9d-496b-9db7-39c3d015ee03",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "0035b04a-3a3c-468f-ba2f-f79f15be486f"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "49ebbc23-2903-4f05-ab69-bc9ecb4f8888"
+        }
+      ],
+      "x": 254,
+      "y": 475,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "${tempVars.msguser.id}",
+        "xp",
+        "+",
+        "1"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "Add XP_1",
+      "guid": "f36e3469-cd3c-4c7f-95c0-56e1cf13655b",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "e850bb40-9613-47d1-93f0-05151bd73d13"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "0035b04a-3a3c-468f-ba2f-f79f15be486f"
+        }
+      ],
+      "x": 562,
+      "y": 458,
+      "rtype": "User Data",
+      "rsubtype": "Edit User Data",
+      "formdata": [
+        "${tempVars.msguser.id}",
+        "lvl",
+        "+",
+        "1"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "oper",
+        "value"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "setto0",
+      "guid": "e850bb40-9613-47d1-93f0-05151bd73d13",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "715a4cbf-4b0c-445d-821c-8657580ae365"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "f36e3469-cd3c-4c7f-95c0-56e1cf13655b"
+        }
+      ],
+      "x": 714,
+      "y": 458,
+      "rtype": "User Data",
+      "rsubtype": "Set User Data",
+      "formdata": [
+        "${tempVars.msguser.id}",
+        "xp",
+        "0"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "fieldvalue"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "lvlup",
+      "guid": "5df29621-88b8-4f29-b887-d23f6a3f9f85",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "e850bb40-9613-47d1-93f0-05151bd73d13"
+        }
+      ],
+      "x": 917,
+      "y": 121,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "🎵│〖level-rank〗",
+        " <@${tempVars.msguser.id}> ,erhöht sein Skill",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "lvl",
+      "guid": "715a4cbf-4b0c-445d-821c-8657580ae365",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "75796d08-bdbe-44fd-a1a3-4b60915e0184"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "e850bb40-9613-47d1-93f0-05151bd73d13"
+        }
+      ],
+      "x": 869,
+      "y": 452,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "🎵│〖level-rank〗",
+        "FF1C1C",
+        "Glückwünsch, dein Skill erhöht sich",
+        "",
+        "",
+        "",
+        "",
+        " **<@${tempVars.msguser.id}> ,erhöht sich auf ${tempVars.lvl}**",
+        "",
+        "",
+        "",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "level",
+      "guid": "75796d08-bdbe-44fd-a1a3-4b60915e0184",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "715a4cbf-4b0c-445d-821c-8657580ae365"
+        }
+      ],
+      "x": 1029,
+      "y": 451,
+      "rtype": "User Action",
+      "rsubtype": "Add Role to User",
+      "formdata": [
+        "${tempVars.msguser.id}",
+        "☢️│Aktiv"
+      ],
+      "formnames": [
+        "user",
+        "roleName"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "erinnerung",
+      "guid": "8b88ae1e-0924-43aa-8cb5-69516e31336d",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "0035b04a-3a3c-468f-ba2f-f79f15be486f"
+        }
+      ],
+      "x": 581,
+      "y": 577,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "🌎〖global-chat〗",
+        "**Vergesst nicht TopVoter im Februar zu werden um tolle Preise zu gewinnen**\n**Hier könnt ihr alle 12h voten https://top.gg/servers/794242252033622045**",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "check_1",
+      "guid": "0035b04a-3a3c-468f-ba2f-f79f15be486f",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "true",
+          "connections": [
+            "f36e3469-cd3c-4c7f-95c0-56e1cf13655b",
+            "8b88ae1e-0924-43aa-8cb5-69516e31336d"
+          ]
+        },
+        {
+          "label": "false",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "1b032e21-be9d-496b-9db7-39c3d015ee03"
+        }
+      ],
+      "x": 405,
+      "y": 445,
+      "rtype": "User Data",
+      "rsubtype": "Check User Data",
+      "formdata": [
+        "${tempVars.msguser.id}",
+        "xp",
+        "greater than",
+        "99"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "compare",
+        "value"
+      ]
+    }
+  ]
+}

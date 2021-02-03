@@ -1,0 +1,135 @@
+{
+  "command": [
+    {
+      "name": "User Joins Server",
+      "perms": [],
+      "actions": [
+        {
+          "name": "Welcome",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "🤭│new-user",
+          "messagetext": "Welcome %%newuser%% auf $$ServerName$$. Hab viel Spaß auf dem Server",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "DM",
+          "category": "Message",
+          "type": "Send Direct Message",
+          "user": "${tempVars.newuser.user.tag}",
+          "messagetext": "Herzlich Willkommen auf ${dbsVars.guild.name}. Fühl dich wie zuhause & lese die Regeln. \n\nHier kannst du alle 12h für unseren Server voten und tolle Ränge gewinnen <3\nhttps://top.gg/servers/794242252033622045",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ],
+      "var": {
+        "user": "newuser"
+      }
+    },
+    {
+      "name": "Any Message",
+      "perms": [],
+      "actions": [
+        {
+          "name": "Add XP",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "user": "${tempVars.msguser.id}",
+          "field": "xp",
+          "oper": "+",
+          "value": "1"
+        },
+        {
+          "name": "check_1",
+          "category": "User Data",
+          "type": "Check User Data",
+          "trueActions": [
+            {
+              "name": "Add XP_1",
+              "category": "User Data",
+              "type": "Edit User Data",
+              "user": "${tempVars.msguser.id}",
+              "field": "lvl",
+              "oper": "+",
+              "value": "1"
+            },
+            {
+              "name": "erinnerung",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "🌎〖global-chat〗",
+              "messagetext": "**Vergesst nicht TopVoter im Februar zu werden um tolle Preise zu gewinnen**\n**Hier könnt ihr alle 12h voten https://top.gg/servers/794242252033622045**",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "setto0",
+              "category": "User Data",
+              "type": "Set User Data",
+              "user": "${tempVars.msguser.id}",
+              "field": "xp",
+              "fieldvalue": "0"
+            },
+            {
+              "name": "lvl",
+              "category": "Message",
+              "type": "Send Embed",
+              "channelname": "🎵│〖level-rank〗",
+              "color": "FF1C1C",
+              "title": "Glückwünsch, dein Skill erhöht sich",
+              "url": "",
+              "authorname": "",
+              "authorimageurl": "",
+              "authorlink": "",
+              "description": " **<@${tempVars.msguser.id}> ,erhöht sich auf ${tempVars.lvl}**",
+              "thumbnail": "",
+              "image": "",
+              "footer": "",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "level",
+              "category": "User Action",
+              "type": "Add Role to User",
+              "user": "${tempVars.msguser.id}",
+              "rolename": "☢️│Aktiv"
+            }
+          ],
+          "falseActions": [],
+          "user": "${tempVars.msguser.id}",
+          "field": "xp",
+          "compare": "greater than",
+          "value": "99"
+        }
+      ],
+      "var": {
+        "user": "msguser"
+      }
+    },
+    {
+      "name": "User Kicked",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "kickuser"
+      }
+    },
+    {
+      "name": "User Banned",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "banuser"
+      }
+    },
+    {
+      "name": "Bot Initialization",
+      "perms": [],
+      "actions": [],
+      "var": {}
+    }
+  ]
+}

@@ -1,0 +1,633 @@
+{
+  "nodes": [
+    {
+      "type": "command",
+      "name": "help",
+      "guid": "7942fe4c-dffa-4146-8cab-d254b3d80d5d",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "37eda463-a170-44f9-af54-61378ffc9294"
+          ]
+        }
+      ],
+      "x": 3,
+      "y": 52
+    },
+    {
+      "type": "response",
+      "name": "help menu",
+      "guid": "37eda463-a170-44f9-af54-61378ffc9294",
+      "reactionFields": [],
+      "embedfields": [
+        {
+          "name": "g!help",
+          "value": "Siehe dieses Menü",
+          "inline": "false"
+        },
+        {
+          "name": "g!level",
+          "value": "Schau dein Level",
+          "inline": "false"
+        },
+        {
+          "name": "g!report <@user><reason>",
+          "value": "Reporte einen User",
+          "inline": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7942fe4c-dffa-4146-8cab-d254b3d80d5d"
+        }
+      ],
+      "x": 162,
+      "y": 36,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "1FFF57",
+        "All Commands",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "${dbsVars.guild.memberCount} Members on ${dbsVars.guild.name}",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "status",
+      "guid": "10e3b62f-5ea6-438f-8546-192623b4b990",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "6dd8f62f-0678-4613-97f1-f9506d15ffab"
+        }
+      ],
+      "x": 1094,
+      "y": 290,
+      "rtype": "Bot Action",
+      "rsubtype": "Set Bot Activity",
+      "formdata": [
+        "mit ${dbsVars.guild.memberCount} Usern on ${dbsVars.guild.name}",
+        "STREAMING",
+        "https://www.twitch.tv/drdave_official"
+      ],
+      "formnames": [
+        "activityname",
+        "activitytype",
+        "streamurl"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "s",
+      "guid": "6dd8f62f-0678-4613-97f1-f9506d15ffab",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "10e3b62f-5ea6-438f-8546-192623b4b990"
+          ]
+        }
+      ],
+      "x": 936,
+      "y": 265
+    },
+    {
+      "type": "command",
+      "name": "report",
+      "guid": "30f70041-2993-4925-9a75-ba5e25deb936",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "a98f250c-4cce-45d5-b366-43a10b005ba1"
+          ]
+        }
+      ],
+      "x": 0,
+      "y": 152
+    },
+    {
+      "type": "response",
+      "name": "Why",
+      "guid": "a98f250c-4cce-45d5-b366-43a10b005ba1",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "94a28dda-ea92-4e74-adfb-a3671dc28644"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "30f70041-2993-4925-9a75-ba5e25deb936"
+        }
+      ],
+      "x": 158,
+      "y": 145,
+      "rtype": "Variable",
+      "rsubtype": "Get Mentioned User",
+      "formdata": [
+        "Why",
+        "User",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "Who",
+      "guid": "94a28dda-ea92-4e74-adfb-a3671dc28644",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "Who",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "c5fe019c-3c14-4d75-8d8e-62d2418cfcf9"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "a98f250c-4cce-45d5-b366-43a10b005ba1"
+        }
+      ],
+      "x": 318,
+      "y": 150,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "Who",
+        "Text",
+        "temp",
+        "0"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "Log",
+      "guid": "c5fe019c-3c14-4d75-8d8e-62d2418cfcf9",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "7353b5c4-2e95-4ed5-9017-334fc58c6a40"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "94a28dda-ea92-4e74-adfb-a3671dc28644"
+        }
+      ],
+      "x": 478,
+      "y": 154,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "report-tracker",
+        "1CFF59",
+        "Report send",
+        "",
+        "",
+        "",
+        "",
+        "From: ${dbsVars.CommandAuthor.user.tag}\nUser: ${tempVars.Why.user.tag}\nMessage: ${tempVars.Who}",
+        "",
+        "",
+        "",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "ready",
+      "guid": "7353b5c4-2e95-4ed5-9017-334fc58c6a40",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c5fe019c-3c14-4d75-8d8e-62d2418cfcf9"
+        }
+      ],
+      "x": 636,
+      "y": 154,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "42FF1C",
+        "successfully submitted",
+        "",
+        "",
+        "",
+        "",
+        "**You have successfully reported ${tempVars.Who}**",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "clear",
+      "guid": "e43a5408-e2c5-4e55-a00a-1dfc38226e9b",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "bb75f602-e82d-4bba-910d-413e64a31291"
+          ]
+        }
+      ],
+      "x": 4,
+      "y": 269,
+      "perms": [
+        "👨‍💼 │leitung"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "clearnumber",
+      "guid": "bb75f602-e82d-4bba-910d-413e64a31291",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "clear",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "859c8952-da58-4ab6-b12b-d78182a9a317"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "e43a5408-e2c5-4e55-a00a-1dfc38226e9b"
+        }
+      ],
+      "x": 167,
+      "y": 267,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "clear",
+        "Number",
+        "temp",
+        "0"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "clear1",
+      "guid": "859c8952-da58-4ab6-b12b-d78182a9a317",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "bb75f602-e82d-4bba-910d-413e64a31291"
+        }
+      ],
+      "x": 331,
+      "y": 265,
+      "rtype": "Channel Action",
+      "rsubtype": "Delete All Messages",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "${tempVars.clear}"
+      ],
+      "formnames": [
+        "channelname",
+        "msgcount"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "t",
+      "guid": "d256ecd5-42e4-40a4-abfe-5cc1425a4409",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "d637b88d-c3fa-46e8-b4a8-cf4b171ecd4b"
+        }
+      ],
+      "x": 189,
+      "y": 377,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandAuthor.user.dmChannel}",
+        "Vielen Dank für dein Interesse an unserem Partnerprogramm, erstmal erzähle ich dir ein wenig was über Gaming Rising\n                                                 ⠀====⠀⠀⠀====⠀⠀                                \n**Was ist Gaming Rising?**\nGaming Rising ist eine Streaming/Youtuber/Influencer-Community, die Anfang 2021 gegründet wurde und stetig wächst. Ziel unseres Netzwerkes ist es, kleine wie auch große Streamer zu unterstützen, gemeinsam Spaß zu haben und als Team und Netzwerk Schritt für Schritt immer größer und professioneller zu werden\n                                                 ⠀====⠀⠀⠀====⠀⠀                                              \n**Hier kannst du dich bewerben für unser Partnerprogramm**\nAuf unseren Discord hast du wie Möglichkeit den Youtuber/Streamer Rang zu bekommen, du bekommst einen Channel wo du bzw unser Bot deine Vidoes/Streams rein schickt.  Zudem als Twitch Streamer o.ä., bekommst du (wenn du willst) Panels von mir die du dann verwenden kannst. Nach circa 4-8 Wochen wenn alles gut läuft, hab ich mir überlegt starten wir mit dir ein kleines Gewinnspiel also für deine Community, was denn im Namen von Gaming Rising copyright  2021 veranstaltet wird und finanziert wird, was genau kann ich im Moment sich sagen & wird erstmal ein kleines Giveaway.  Im discord haben wir ein Announcement Channel, den du denn Folgen solltest, falls du auch einen Hast werden wir den genauso Folgen also sozusagen \"Werbung gegen Werbung\"! Und dann würden wir uns auch als \"Partner\" Verlinkung unter deinen Videos/Streams sehr freuen von unseren Discord. Ja Falls du dennoch fragen hast, Frag einfach los Wenn du Interesse hast, würd ich mich freuen:D Ist halt alles noch in der Beta\n---\n---\nBitte einmal ausfüllen & dann melde ich mich so schnell wie es geht bei dir! :heart:\nhttps://forms.gle/G3Z9zm6Xk6tsucZj6",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "info",
+      "guid": "d637b88d-c3fa-46e8-b4a8-cf4b171ecd4b",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "d256ecd5-42e4-40a4-abfe-5cc1425a4409"
+          ]
+        }
+      ],
+      "x": 18,
+      "y": 390,
+      "perms": []
+    },
+    {
+      "type": "command",
+      "name": "level",
+      "guid": "b4c13bd1-bf02-4d31-acdf-e8442a8efe9e",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "516dfbd3-1abd-43f6-839b-9e283cc9802f"
+          ]
+        }
+      ],
+      "x": 9,
+      "y": 513,
+      "perms": []
+    },
+    {
+      "type": "response",
+      "name": "Getxp",
+      "guid": "516dfbd3-1abd-43f6-839b-9e283cc9802f",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "xp",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "31abd226-d0c5-4c02-826b-22ee7cb7bff4"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "b4c13bd1-bf02-4d31-acdf-e8442a8efe9e"
+        }
+      ],
+      "x": 182,
+      "y": 493,
+      "rtype": "User Data",
+      "rsubtype": "Get User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "xp",
+        "xp",
+        "temp",
+        "User"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "varname",
+        "saveVarType",
+        "vartype"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "Getxp_1",
+      "guid": "31abd226-d0c5-4c02-826b-22ee7cb7bff4",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "lvl",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "65904904-3536-4595-bd83-0dbdf12f2843"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "516dfbd3-1abd-43f6-839b-9e283cc9802f"
+        }
+      ],
+      "x": 332,
+      "y": 494,
+      "rtype": "User Data",
+      "rsubtype": "Get User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "lvl",
+        "lvl",
+        "temp",
+        "User"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "varname",
+        "saveVarType",
+        "vartype"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "send2",
+      "guid": "65904904-3536-4595-bd83-0dbdf12f2843",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "31abd226-d0c5-4c02-826b-22ee7cb7bff4"
+        }
+      ],
+      "x": 493,
+      "y": 489,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "🎵│〖level〗",
+        "F345FF",
+        "Dein Level",
+        "",
+        "",
+        "",
+        "",
+        "<@${dbsVars.CommandAuthor.id}>\nDein Level ist **${tempVars.lvl}**\ndu hast derzeit **${tempVars.xp}/150 XP**",
+        "",
+        "",
+        "",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    }
+  ]
+}
